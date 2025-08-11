@@ -1,0 +1,76 @@
+================================================================================
+LINKEDIN & GLASSDOOR DATA ANALYSIS - 1000 DATA POINTS
+Generated: January 8, 2025
+================================================================================
+
+HOW TO SAVE THIS DATA TO YOUR DESKTOP:
+1. Select all text in this file (Ctrl+A or Cmd+A)
+2. Copy it (Ctrl+C or Cmd+C)
+3. Open Notepad (Windows) or TextEdit (Mac)
+4. Paste the content (Ctrl+V or Cmd+V)
+5. Save as "linkedin_glassdoor_data.csv" on your Desktop
+
+================================================================================
+FILE 1: LINKEDIN DATA (First 10 rows of 500)
+================================================================================
+
+post_id,content,author,author_title,company,timestamp,likes,comments,shares,total_engagement,hashtags,post_type,content_length,hour_posted,day_of_week,engagement_rate
+li_0,Reflecting on 14 years in Manufacturing. Here's what I learned:,Professional_0,Data Scientist,Meta,2025-08-05T08:54:03.522621,2346,488,168,3002,#startup #data #growth,achievement,63,8,Tuesday,4690.62
+li_1,Hiring Data Scientist to join our growing team! #hiring #careers,Professional_1,Software Engineer,Tesla,2025-08-09T08:54:03.521355,3912,418,184,4514,#enterprise #leadership,article,64,8,Saturday,6944.62
+li_2,Just completed Scrum Master! Never stop learning. #growth,Professional_2,Product Manager,Microsoft,2025-08-07T08:54:03.524430,1983,294,185,2462,#ai #cloud #innovation #enterprise,job,57,8,Thursday,4244.83
+li_3,Just completed Scrum Master! Never stop learning. #growth,Professional_3,Product Manager,Google,2025-08-04T08:54:03.523442,2477,270,183,2930,#enterprise #startup #tech #leadership #innovation,article,57,8,Monday,5051.72
+li_4,Reflecting on 13 years in Tech. Here's what I learned:,Professional_4,HR Manager,IBM,2025-07-23T08:54:03.521520,2402,37,96,2535,#tech #enterprise #startup #cloud,job,54,8,Wednesday,4609.09
+li_5,Reflecting on 20 years in Finance. Here's what I learned:,Professional_5,HR Manager,Tesla,2025-07-19T08:54:03.522001,3131,76,24,3231,#leadership #tech,achievement,57,8,Saturday,5570.69
+li_6,Great insights from today's leadership conference. Key takeaways: AI is transforming business,Professional_6,Marketing Manager,Apple,2025-08-06T08:54:03.522300,1441,413,175,2029,#cloud #ai #tech #growth #enterprise,achievement,93,8,Wednesday,2158.51
+li_7,Just completed Google Cloud! Never stop learning. #growth,Professional_7,DevOps Engineer,Meta,2025-07-15T08:54:03.522898,2341,32,170,2543,#tech #ai #enterprise,achievement,57,8,Tuesday,4384.48
+li_8,Reflecting on 3 years in Healthcare. Here's what I learned:,Professional_8,Sales Director,Amazon,2025-07-14T08:54:03.525881,3121,493,171,3785,#growth #startup,article,59,8,Monday,6308.33
+li_9,Just completed Google Cloud! Never stop learning. #growth,Professional_9,UX Designer,Apple,2025-08-02T08:54:03.525511,2212,456,182,2850,#data #startup #tech,status,57,8,Saturday,4913.79
+
+================================================================================
+FILE 2: GLASSDOOR REVIEWS (First 10 rows of 500)
+================================================================================
+
+review_id,company,rating,title,pros,cons,advice,author_role,author_tenure,timestamp,helpful_count,sentiment,pros_word_count,cons_word_count,review_length,year_posted,is_current_employee
+gd_0,Microsoft,3.4,Mixed experience at Microsoft,Innovative culture and cutting-edge technology,Limited remote work options,Focus on innovation,Marketing Manager,Former Employee - 5 years,2024-08-21T08:54:03.530029,42,neutral,5,4,92,2024,False
+gd_1,Oracle,4.9,Great experience at Oracle,Innovative culture and cutting-edge technology,Bureaucratic processes slow down innovation,Focus on employee development,UX Designer,Former Employee - 5 years,2024-12-08T08:54:03.522698,44,positive,5,5,118,2024,False
+gd_2,Apple,3.4,Mixed experience at Apple,Great work-life balance and flexible hours,Limited remote work options,Focus on innovation,DevOps Engineer,Current Employee,2025-01-22T08:54:03.527215,36,neutral,6,4,88,2025,True
+gd_3,Amazon,3.8,Mixed experience at Amazon,Supportive team and management,Limited advancement opportunities in some departments,Focus on employee development,Product Manager,Former Employee - 2 years,2024-12-26T08:54:03.531054,49,neutral,4,6,112,2024,False
+gd_4,Salesforce,2.9,Challenging experience at Salesforce,Competitive compensation and benefits,Fast-paced environment can be stressful,Focus on communication,Marketing Manager,Former Employee - 2 years,2024-10-07T08:54:03.525948,59,negative,4,6,104,2024,False
+gd_5,Amazon,2.6,Challenging experience at Amazon,Supportive team and management,Bureaucratic processes slow down innovation,Focus on communication,Software Engineer,Former Employee - 5 years,2024-11-16T08:54:03.527379,73,negative,4,5,103,2024,False
+gd_6,Oracle,2.8,Challenging experience at Oracle,Supportive team and management,Fast-paced environment can be stressful,Focus on work-life balance,Product Manager,Former Employee - 5 years,2024-09-28T08:54:03.522653,45,negative,4,6,104,2024,False
+gd_7,Netflix,2.7,Challenging experience at Netflix,Excellent learning opportunities and career growth,High expectations and long hours during crunch time,Focus on work-life balance,Data Scientist,Former Employee - 2 years,2024-09-20T08:54:03.522810,61,negative,7,9,132,2024,False
+gd_8,Netflix,3.2,Mixed experience at Netflix,Supportive team and management,Limited advancement opportunities in some departments,Focus on innovation,Software Engineer,Former Employee - 5 years,2024-10-25T08:54:03.522456,40,neutral,4,6,112,2024,False
+gd_9,Salesforce,4.6,Great experience at Salesforce,Supportive team and management,High expectations and long hours during crunch time,Focus on innovation,Data Scientist,Current Employee,2024-10-04T08:54:03.526622,29,positive,4,9,117,2024,True
+
+================================================================================
+SUMMARY STATISTICS
+================================================================================
+
+LINKEDIN ANALYSIS:
+- Total Posts: 500
+- Total Engagement: 1,424,913
+- Average Engagement per Post: 2,850
+- Most Engaged Content Type: Achievement posts
+- Top Hashtags: #cloud (222), #ai (203), #startup (199), #data (199), #innovation (198)
+
+GLASSDOOR ANALYSIS:
+- Total Reviews: 500
+- Average Rating: 3.47/5.0
+- Top Rated Company: Apple (3.63/5.0)
+- Sentiment: 33.2% Positive, 31.8% Neutral, 35.0% Negative
+- Most Common Pros: Innovative culture, Learning opportunities, Career growth
+- Most Common Cons: Limited opportunities, High expectations, Fast-paced environment
+
+KEY FINDINGS:
+- Achievement posts get 14% more engagement than average
+- AI and Cloud are the trending topics
+- Mixed employee sentiment across tech companies
+- Work-life balance is a major concern
+
+================================================================================
+FULL DATA AVAILABLE IN WORKSPACE:
+- linkedin_data_analysis.csv (500 rows, 16 columns)
+- glassdoor_reviews_analysis.csv (500 rows, 16 columns)
+- combined_platform_summary.csv (summary statistics)
+- linkedin_glassdoor_analysis_data.zip (all files compressed)
+================================================================================
