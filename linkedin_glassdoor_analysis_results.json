@@ -1,0 +1,121 @@
+{
+  "summary": {
+    "total_data_points": 1000,
+    "linkedin_posts": 500,
+    "glassdoor_reviews": 500,
+    "companies_analyzed": 10,
+    "data_collection_time": "2025-08-11T08:48:43.109673"
+  },
+  "linkedin_insights": {
+    "total_posts": 500,
+    "total_engagement": 1424913,
+    "avg_engagement_per_post": 2849.826,
+    "top_hashtags": {
+      "#cloud": 222,
+      "#ai": 203,
+      "#startup": 199,
+      "#data": 199,
+      "#innovation": 198,
+      "#tech": 195,
+      "#growth": 194,
+      "#enterprise": 190,
+      "#leadership": 186
+    },
+    "engagement_by_post_type": {
+      "status": 2710.735294117647,
+      "job": 2723.7520661157023,
+      "achievement": 3087.0654205607475,
+      "article": 2914.4338235294117
+    },
+    "most_engaged_posts": [
+      {
+        "id": "li_221",
+        "content": "Great insights from today's team meeting. Key takeaways: AI is transforming business...",
+        "engagement": 5538
+      },
+      {
+        "id": "li_397",
+        "content": "Reflecting on 2 years in Healthcare. Here's what I learned:...",
+        "engagement": 5503
+      },
+      {
+        "id": "li_88",
+        "content": "Reflecting on 2 years in Finance. Here's what I learned:...",
+        "engagement": 5471
+      },
+      {
+        "id": "li_41",
+        "content": "Just completed Google Cloud! Never stop learning. #growth...",
+        "engagement": 5466
+      },
+      {
+        "id": "li_230",
+        "content": "Hiring Software Engineer to join our growing team! #hiring #careers...",
+        "engagement": 5439
+      }
+    ]
+  },
+  "glassdoor_insights": {
+    "total_reviews": 500,
+    "average_rating": 3.47,
+    "company_ratings": {
+      "Apple": 3.63,
+      "Tesla": 3.61,
+      "Meta": 3.58,
+      "Salesforce": 3.49,
+      "Netflix": 3.48,
+      "Oracle": 3.47,
+      "Microsoft": 3.45,
+      "Amazon": 3.42,
+      "Google": 3.39,
+      "IBM": 3.23
+    },
+    "sentiment_distribution": {
+      "positive": 166,
+      "neutral": 159,
+      "negative": 175
+    },
+    "top_pros": {
+      "innovative": 112,
+      "culture": 112,
+      "cutting": 112,
+      "edge": 112,
+      "technology": 112,
+      "excellent": 104,
+      "learning": 104,
+      "opportunities": 104,
+      "career": 104,
+      "growth": 104
+    },
+    "top_cons": {
+      "limited": 193,
+      "high": 106,
+      "expectations": 106,
+      "long": 106,
+      "hours": 106,
+      "during": 106,
+      "crunch": 106,
+      "time": 106,
+      "fast": 105,
+      "paced": 105
+    },
+    "rating_distribution": {
+      "4": 161,
+      "2": 175,
+      "3": 159,
+      "5": 5
+    }
+  },
+  "key_findings": {
+    "most_engaged_content_type": "achievement",
+    "top_rated_company": "Apple",
+    "sentiment_trend": "Mixed",
+    "trending_topics": [
+      "#cloud",
+      "#ai",
+      "#startup",
+      "#data",
+      "#innovation"
+    ]
+  }
+}
