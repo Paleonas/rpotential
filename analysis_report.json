@@ -1,0 +1,423 @@
+{
+  "summary": {
+    "total_posts": 1200,
+    "platforms": {
+      "linkedin": 718,
+      "glassdoor": 482
+    },
+    "post_types": {
+      "article": 227,
+      "post": 491,
+      "review": 482
+    },
+    "date_range": {
+      "earliest": "2025-02-12",
+      "latest": "2025-08-10"
+    }
+  },
+  "personality_analysis": {
+    "executive_visionary": {
+      "count": 566,
+      "average_sentiment": 0.7,
+      "top_examples": [
+        {
+          "content": "Bret Taylor's new venture Sierra.AI is pushing boundaries. Having worked with him at Salesforce, I'm excited to see what comes next. Exciting times in the CRM industry....",
+          "author": "Emily Johnson",
+          "platform": "linkedin",
+          "keywords_found": [
+            "Bret Taylor",
+            "Sierra.AI",
+            "Salesforce",
+            "AI"
+          ],
+          "sentiment": 1.0
+        },
+        {
+          "content": "Bret Taylor's new venture Sierra.AI is pushing boundaries. Having worked with him at Salesforce, I'm excited to see what comes next. Looking forward to seeing how this evolves....",
+          "author": "Chris Martin",
+          "platform": "linkedin",
+          "keywords_found": [
+            "Bret Taylor",
+            "Sierra.AI",
+            "Salesforce",
+            "AI"
+          ],
+          "sentiment": 1.0
+        },
+        {
+          "content": "Marc Benioff's vision for Agentforce is compelling. As someone working in CRM, I see the potential for AI agents to revolutionize customer service. The competition is heating up in this space....",
+          "author": "Chris Martin",
+          "platform": "linkedin",
+          "keywords_found": [
+            "Marc Benioff",
+            "Agentforce",
+            "AI",
+            "CRM agents"
+          ],
+          "sentiment": 0.0
+        }
+      ],
+      "platforms": {
+        "linkedin": 479,
+        "glassdoor": 87
+      }
+    },
+    "tech_enthusiast": {
+      "count": 492,
+      "average_sentiment": 0.04,
+      "top_examples": [
+        {
+          "content": "While Agentforce shows promise, implementation challenges remain. Integration with existing systems and data privacy concerns need addressing. Looking forward to seeing how this evolves....",
+          "author": "Michael Rodriguez",
+          "platform": "linkedin",
+          "keywords_found": [
+            "Agentforce",
+            "AI"
+          ],
+          "sentiment": -1.0
+        },
+        {
+          "content": "While Agentforce shows promise, implementation challenges remain. Integration with existing systems and data privacy concerns need addressing. The potential for enterprise transformation is huge....",
+          "author": "Lisa Anderson",
+          "platform": "linkedin",
+          "keywords_found": [
+            "Agentforce",
+            "AI"
+          ],
+          "sentiment": -1.0
+        },
+        {
+          "content": "While Agentforce shows promise, implementation challenges remain. Integration with existing systems and data privacy concerns need addressing. Looking forward to seeing how this evolves....",
+          "author": "James Wilson",
+          "platform": "linkedin",
+          "keywords_found": [
+            "Agentforce",
+            "AI"
+          ],
+          "sentiment": -1.0
+        }
+      ],
+      "platforms": {
+        "linkedin": 191,
+        "glassdoor": 301
+      }
+    },
+    "skeptical_employee": {
+      "count": 275,
+      "average_sentiment": 0.24,
+      "top_examples": [
+        {
+          "content": "The Agentforce project is revolutionary but the pace is intense. Long hours but you're building the future of AI. Leadership is visionary....",
+          "author": "Anonymous Employee",
+          "platform": "glassdoor",
+          "keywords_found": [
+            "Agentforce",
+            "AI",
+            "Salesforce"
+          ],
+          "sentiment": 1.0
+        },
+        {
+          "content": "Working on CRM agents and AI integration. Complex technical challenges but supportive team. Marc Benioff's vision keeps us motivated....",
+          "author": "Anonymous Employee",
+          "platform": "glassdoor",
+          "keywords_found": [
+            "CRM agents",
+            "AI",
+            "Marc Benioff",
+            "Salesforce"
+          ],
+          "sentiment": 0.0
+        },
+        {
+          "content": "While the AI push with Agentforce is exciting, some concerns about work-life balance and unrealistic deadlines. Technology is impressive though....",
+          "author": "Anonymous Employee",
+          "platform": "glassdoor",
+          "keywords_found": [
+            "Agentforce",
+            "AI",
+            "Salesforce"
+          ],
+          "sentiment": 0.0
+        }
+      ],
+      "platforms": {
+        "glassdoor": 268,
+        "linkedin": 7
+      }
+    },
+    "sales_advocate": {
+      "count": 217,
+      "average_sentiment": 0.19,
+      "top_examples": [
+        {
+          "content": "Marc Benioff's vision for Agentforce is compelling. As someone working in CRM, I see the potential for AI agents to revolutionize customer service. The competition is heating up in this space....",
+          "author": "Chris Martin",
+          "platform": "linkedin",
+          "keywords_found": [
+            "Marc Benioff",
+            "Agentforce",
+            "AI",
+            "CRM agents"
+          ],
+          "sentiment": 0.0
+        },
+        {
+          "content": "Marc Benioff's vision for Agentforce is compelling. As someone working in CRM, I see the potential for AI agents to revolutionize customer service. Exciting times in the CRM industry....",
+          "author": "Michael Rodriguez",
+          "platform": "linkedin",
+          "keywords_found": [
+            "Marc Benioff",
+            "Agentforce",
+            "AI",
+            "CRM agents"
+          ],
+          "sentiment": 0.0
+        },
+        {
+          "content": "Bret Taylor's new venture Sierra.AI is pushing boundaries. Having worked with him at Salesforce, I'm excited to see what comes next. Customers are already seeing value....",
+          "author": "James Wilson",
+          "platform": "linkedin",
+          "keywords_found": [
+            "Bret Taylor",
+            "Sierra.AI",
+            "Salesforce",
+            "AI"
+          ],
+          "sentiment": 1.0
+        }
+      ],
+      "platforms": {
+        "linkedin": 217
+      }
+    },
+    "culture_focused": {
+      "count": 380,
+      "average_sentiment": 0.56,
+      "top_examples": [
+        {
+          "content": "Bret Taylor has created something special at Sierra.AI. Small team doing big things in AI agents. Great opportunity to shape the future....",
+          "author": "Anonymous Employee",
+          "platform": "glassdoor",
+          "keywords_found": [
+            "Bret Taylor",
+            "Sierra.AI",
+            "AI"
+          ],
+          "sentiment": 1.0
+        },
+        {
+          "content": "Bret Taylor has created something special at Sierra.AI. Small team doing big things in AI agents. Great opportunity to shape the future....",
+          "author": "Anonymous Employee",
+          "platform": "glassdoor",
+          "keywords_found": [
+            "Bret Taylor",
+            "Sierra.AI",
+            "AI"
+          ],
+          "sentiment": 1.0
+        },
+        {
+          "content": "Working on the Agentforce team has been incredible. Marc Benioff is very involved and the technology is groundbreaking. Great benefits and culture....",
+          "author": "Anonymous Employee",
+          "platform": "glassdoor",
+          "keywords_found": [
+            "Agentforce",
+            "Marc Benioff",
+            "AI",
+            "Salesforce"
+          ],
+          "sentiment": 1.0
+        }
+      ],
+      "platforms": {
+        "glassdoor": 380
+      }
+    }
+  },
+  "sentiment_trends": {
+    "by_keyword": {
+      "Bret Taylor": {
+        "average": 1.0,
+        "count": 247,
+        "positive_ratio": 1.0
+      },
+      "Sierra.AI": {
+        "average": 1.0,
+        "count": 247,
+        "positive_ratio": 1.0
+      },
+      "Salesforce": {
+        "average": 0.71,
+        "count": 677,
+        "positive_ratio": 0.73
+      },
+      "AI": {
+        "average": 0.42,
+        "count": 1200,
+        "positive_ratio": 0.53
+      },
+      "Marc Benioff": {
+        "average": 0.38,
+        "count": 352,
+        "positive_ratio": 0.38
+      },
+      "Agentforce": {
+        "average": 0.36,
+        "count": 725,
+        "positive_ratio": 0.52
+      },
+      "CRM agents": {
+        "average": 0.06,
+        "count": 363,
+        "positive_ratio": 0.06
+      }
+    },
+    "by_platform": {
+      "linkedin": {
+        "average": 0.3,
+        "count": 718,
+        "positive_ratio": 0.46
+      },
+      "glassdoor": {
+        "average": 0.59,
+        "count": 482,
+        "positive_ratio": 0.62
+      }
+    },
+    "timeline": {
+      "2025-06": {
+        "average": 0.3,
+        "count": 329
+      },
+      "2025-07": {
+        "average": 0.38,
+        "count": 295
+      },
+      "2025-04": {
+        "average": 0.69,
+        "count": 77
+      },
+      "2025-05": {
+        "average": 0.35,
+        "count": 244
+      },
+      "2025-03": {
+        "average": 0.7,
+        "count": 83
+      },
+      "2025-08": {
+        "average": 0.5,
+        "count": 129
+      },
+      "2025-02": {
+        "average": 0.67,
+        "count": 43
+      }
+    }
+  },
+  "agentforce_perception": {
+    "revolutionary": {
+      "count": 273,
+      "average_sentiment": 0.85,
+      "examples": [
+        {
+          "author": "Lisa Anderson",
+          "platform": "linkedin",
+          "snippet": "While Agentforce shows promise, implementation challenges remain. Integration with existing systems and data privacy concerns need addressing. The pot...",
+          "sentiment": -1.0
+        },
+        {
+          "author": "Anonymous Employee",
+          "platform": "glassdoor",
+          "snippet": "The Agentforce project is revolutionary but the pace is intense. Long hours but you're building the future of AI. Leadership is visionary....",
+          "sentiment": 1.0
+        }
+      ]
+    },
+    "skeptical": {
+      "count": 212,
+      "average_sentiment": -0.55,
+      "examples": [
+        {
+          "author": "Michael Rodriguez",
+          "platform": "linkedin",
+          "snippet": "While Agentforce shows promise, implementation challenges remain. Integration with existing systems and data privacy concerns need addressing. Looking...",
+          "sentiment": -1.0
+        },
+        {
+          "author": "Lisa Anderson",
+          "platform": "linkedin",
+          "snippet": "While Agentforce shows promise, implementation challenges remain. Integration with existing systems and data privacy concerns need addressing. The pot...",
+          "sentiment": -1.0
+        }
+      ]
+    },
+    "technical": {
+      "count": 152,
+      "average_sentiment": -0.61,
+      "examples": [
+        {
+          "author": "Michael Rodriguez",
+          "platform": "linkedin",
+          "snippet": "While Agentforce shows promise, implementation challenges remain. Integration with existing systems and data privacy concerns need addressing. Looking...",
+          "sentiment": -1.0
+        },
+        {
+          "author": "Lisa Anderson",
+          "platform": "linkedin",
+          "snippet": "While Agentforce shows promise, implementation challenges remain. Integration with existing systems and data privacy concerns need addressing. The pot...",
+          "sentiment": -1.0
+        }
+      ]
+    }
+  },
+  "competitive_landscape": {
+    "Sierra.AI": {
+      "total_mentions": 247,
+      "average_sentiment": 1.0,
+      "platforms": {
+        "linkedin": 153,
+        "glassdoor": 94
+      },
+      "associations": {
+        "with_bret_taylor": 247
+      }
+    }
+  },
+  "top_keywords": [
+    {
+      "keyword": "AI",
+      "count": 1200
+    },
+    {
+      "keyword": "Agentforce",
+      "count": 725
+    },
+    {
+      "keyword": "Salesforce",
+      "count": 677
+    },
+    {
+      "keyword": "CRM agents",
+      "count": 363
+    },
+    {
+      "keyword": "Marc Benioff",
+      "count": 352
+    },
+    {
+      "keyword": "Bret Taylor",
+      "count": 247
+    },
+    {
+      "keyword": "Sierra.AI",
+      "count": 247
+    }
+  ],
+  "key_insights": [
+    "Glassdoor reviews are 29.0% more critical than LinkedIn posts",
+    "Agentforce is predominantly perceived as 'revolutionary' with 273 mentions",
+    "The most common personality type discussing these topics is 'executive_visionary' (566 posts)"
+  ]
+}
