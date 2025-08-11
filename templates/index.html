@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Monitoring Dashboard</title>
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-graph-up"></i> Social Media Monitor
+            </a>
+            <div class="navbar-nav ms-auto">
+                <button class="btn btn-light btn-sm me-2" onclick="refreshData()">
+                    <i class="bi bi-arrow-clockwise"></i> Refresh
+                </button>
+                <button class="btn btn-success btn-sm" onclick="triggerScrape()">
+                    <i class="bi bi-play-fill"></i> Run Scraper
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-4">
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Posts</h5>
+                        <h2 class="card-text" id="totalPosts">-</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">LinkedIn Posts</h5>
+                        <h2 class="card-text" id="linkedinPosts">-</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title">Glassdoor Reviews</h5>
+                        <h2 class="card-text" id="glassdoorPosts">-</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning">
+                    <div class="card-body">
+                        <h5 class="card-title">Keywords Tracked</h5>
+                        <h2 class="card-text" id="keywordsTracked">-</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Posts Over Time</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="postsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Top Keywords</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="keywordsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <select class="form-select" id="platformFilter" onchange="loadPosts()">
+                    <option value="">All Platforms</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="glassdoor">Glassdoor</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select" id="keywordFilter" onchange="loadPosts()">
+                    <option value="">All Keywords</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select" id="postTypeFilter" onchange="loadPosts()">
+                    <option value="">All Types</option>
+                    <option value="post">Posts</option>
+                    <option value="review">Reviews</option>
+                    <option value="article">Articles</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-secondary" onclick="exportData()">
+                    <i class="bi bi-download"></i> Export Data
+                </button>
+            </div>
+        </div>
+
+        <!-- Posts Table -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Recent Posts</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Author</th>
+                                <th>Content</th>
+                                <th>Keywords</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="postsTable">
+                            <tr>
+                                <td colspan="6" class="text-center">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination -->
+                <nav>
+                    <ul class="pagination justify-content-center" id="pagination">
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast" role="alert">
+            <div class="toast-header">
+                <strong class="me-auto">Notification</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="toastMessage">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
