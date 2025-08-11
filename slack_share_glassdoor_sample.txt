@@ -1,0 +1,23 @@
+GLASSDOOR DATA SAMPLE (First 25 rows of 500)
+============================================
+
+review_id,company,rating,sentiment,pros,cons,author_role,author_tenure
+gd_0,Microsoft,3.4,neutral,"Innovative culture","Limited remote work",Marketing Manager,Former-5yrs
+gd_1,Oracle,4.9,positive,"Innovative culture","Bureaucratic processes",UX Designer,Former-5yrs
+gd_2,Apple,3.4,neutral,"Great work-life balance","Limited remote work",DevOps Engineer,Current
+gd_3,Amazon,3.8,neutral,"Supportive team","Limited advancement",Product Manager,Former-2yrs
+gd_4,Salesforce,2.9,negative,"Competitive compensation","Fast-paced stress",Marketing Manager,Former-2yrs
+gd_5,Amazon,2.6,negative,"Supportive team","Bureaucratic processes",Software Engineer,Former-5yrs
+gd_6,Oracle,2.8,negative,"Supportive team","Fast-paced stress",Product Manager,Former-5yrs
+gd_7,Netflix,2.7,negative,"Excellent learning","High expectations",Data Scientist,Former-2yrs
+gd_8,Netflix,3.2,neutral,"Supportive team","Limited advancement",Software Engineer,Former-5yrs
+gd_9,Salesforce,4.6,positive,"Supportive team","Long hours",Data Scientist,Current
+
+COMPANY RATINGS:
+- Apple: 3.63 ⭐
+- Tesla: 3.61 ⭐
+- Meta: 3.58 ⭐
+- Salesforce: 3.49 ⭐
+- Netflix: 3.48 ⭐
+
+SENTIMENT: 33% Positive, 32% Neutral, 35% Negative

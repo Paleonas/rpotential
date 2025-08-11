@@ -1,0 +1,20 @@
+LINKEDIN DATA SAMPLE (First 25 rows of 500)
+==========================================
+
+post_id,content,author,author_title,company,timestamp,likes,comments,shares,total_engagement,hashtags,post_type
+li_0,"Reflecting on 14 years in Manufacturing",Professional_0,Data Scientist,Meta,2025-08-05,2346,488,168,3002,#startup #data #growth,achievement
+li_1,"Hiring Data Scientist to join our team!",Professional_1,Software Engineer,Tesla,2025-08-09,3912,418,184,4514,#enterprise #leadership,article
+li_2,"Just completed Scrum Master certification",Professional_2,Product Manager,Microsoft,2025-08-07,1983,294,185,2462,#ai #cloud #innovation,job
+li_3,"Just completed Scrum Master certification",Professional_3,Product Manager,Google,2025-08-04,2477,270,183,2930,#enterprise #startup #tech,article
+li_4,"Reflecting on 13 years in Tech",Professional_4,HR Manager,IBM,2025-07-23,2402,37,96,2535,#tech #enterprise #startup,job
+li_5,"Reflecting on 20 years in Finance",Professional_5,HR Manager,Tesla,2025-07-19,3131,76,24,3231,#leadership #tech,achievement
+li_6,"AI is transforming business",Professional_6,Marketing Manager,Apple,2025-08-06,1441,413,175,2029,#cloud #ai #tech,achievement
+li_7,"Just completed Google Cloud cert",Professional_7,DevOps Engineer,Meta,2025-07-15,2341,32,170,2543,#tech #ai #enterprise,achievement
+li_8,"3 years in Healthcare learnings",Professional_8,Sales Director,Amazon,2025-07-14,3121,493,171,3785,#growth #startup,article
+li_9,"Just completed Google Cloud cert",Professional_9,UX Designer,Apple,2025-08-02,2212,456,182,2850,#data #startup #tech,status
+
+TOP INSIGHTS:
+- Total Engagement: 1,424,913 
+- Avg per Post: 2,850
+- Top Content: Achievement posts (3,087 avg)
+- Trending: #cloud, #ai, #startup
