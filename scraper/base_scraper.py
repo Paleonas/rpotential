@@ -7,10 +7,9 @@ from typing import List, Dict, Optional
 import requests
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
-from playwright.async_api import async_playwright
-import asyncio
 import os
 from dotenv import load_dotenv
+from .proxy_manager import proxy_manager
 
 load_dotenv()
 
@@ -35,6 +34,14 @@ class BaseScraper(ABC):
             'general': ['AI', 'CRM agents', 'artificial intelligence']
         }
         
+        # Initialize proxy manager if needed
+        if self.use_proxy and not self.proxy_url:
+            # Load existing proxies or fetch new ones
+            proxy_manager.load_proxies()
+            if not proxy_manager.working_proxies:
+                print("No saved proxies found. Fetching new proxies...")
+                proxy_manager.refresh_proxies()
+        
         # Setup session
         self._setup_session()
     
@@ -49,11 +56,31 @@ class BaseScraper(ABC):
             'Upgrade-Insecure-Requests': '1'
         })
         
+        # Use manual proxy if specified
         if self.use_proxy and self.proxy_url:
             self.session.proxies = {
                 'http': self.proxy_url,
                 'https': self.proxy_url
             }
+    
+    def _get_proxy_for_request(self) -> Optional[Dict]:
+        """Get a proxy for the current request"""
+        if not self.use_proxy:
+            return None
+        
+        if self.proxy_url:
+            # Use manual proxy
+            return {
+                'http': self.proxy_url,
+                'https': self.proxy_url
+            }
+        else:
+            # Use proxy manager
+            proxy = proxy_manager.get_proxy()
+            if proxy:
+                return proxy_manager.get_proxy_dict(proxy)
+        
+        return None
     
     def _rate_limit(self):
         """Apply rate limiting between requests"""
@@ -61,10 +88,21 @@ class BaseScraper(ABC):
         time.sleep(delay)
     
     def _retry_request(self, url: str, method: str = 'GET', **kwargs) -> Optional[requests.Response]:
-        """Make HTTP request with retry logic"""
+        """Make HTTP request with retry logic and proxy rotation"""
+        last_proxy = None
+        
         for attempt in range(self.max_retries):
             try:
                 self._rate_limit()
+                
+                # Get proxy for this request
+                proxies = self._get_proxy_for_request()
+                
+                # Update kwargs with proxy if available
+                if proxies:
+                    kwargs['proxies'] = proxies
+                    kwargs['verify'] = False  # Disable SSL verification for proxies
+                    print(f"Using proxy: {list(proxies.values())[0]}")
                 
                 if method == 'GET':
                     response = self.session.get(url, timeout=self.timeout, **kwargs)
@@ -74,6 +112,25 @@ class BaseScraper(ABC):
                 response.raise_for_status()
                 return response
                 
+            except requests.exceptions.ProxyError as e:
+                print(f"Proxy error (attempt {attempt + 1}/{self.max_retries}): {e}")
+                
+                # Remove bad proxy if using proxy manager
+                if proxies and not self.proxy_url:
+                    # Extract proxy info from the proxy dict
+                    proxy_url = list(proxies.values())[0]
+                    if '://' in proxy_url:
+                        proxy_parts = proxy_url.split('://')[1].split(':')
+                        if len(proxy_parts) == 2:
+                            bad_proxy = {'ip': proxy_parts[0], 'port': proxy_parts[1]}
+                            proxy_manager.remove_proxy(bad_proxy)
+                            print(f"Removed bad proxy: {proxy_url}")
+                
+                # Try again with a different proxy
+                if attempt < self.max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                    
             except requests.exceptions.RequestException as e:
                 print(f"Request failed (attempt {attempt + 1}/{self.max_retries}): {e}")
                 if attempt == self.max_retries - 1:
@@ -151,44 +208,11 @@ class BaseScraper(ABC):
         
         return None
     
-    async def _get_page_with_playwright(self, url: str) -> Optional[str]:
-        """Get page content using Playwright for JavaScript-heavy sites"""
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
-            
-            try:
-                context = await browser.new_context(
-                    user_agent=self.ua.random,
-                    viewport={'width': 1920, 'height': 1080}
-                )
-                
-                if self.use_proxy and self.proxy_url:
-                    # Parse proxy URL for Playwright format
-                    # This is simplified - you may need to handle auth
-                    context = await browser.new_context(
-                        proxy={'server': self.proxy_url}
-                    )
-                
-                page = await context.new_page()
-                await page.goto(url, wait_until='networkidle')
-                
-                # Wait a bit for dynamic content
-                await page.wait_for_timeout(3000)
-                
-                content = await page.content()
-                await browser.close()
-                
-                return content
-                
-            except Exception as e:
-                print(f"Playwright error: {e}")
-                await browser.close()
-                return None
-    
     def get_page_content(self, url: str, use_js: bool = False) -> Optional[str]:
-        """Get page content, optionally using Playwright for JS sites"""
+        """Get page content"""
         if use_js:
-            return asyncio.run(self._get_page_with_playwright(url))
+            print("JavaScript rendering not available in this version")
+            return None
         else:
             response = self._retry_request(url)
             return response.text if response else None

@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import os
 from .base_scraper import BaseScraper
+from .alternative_search import AlternativeSearch
 
 class LinkedInScraper(BaseScraper):
     """Scraper for LinkedIn posts and ads"""
@@ -56,12 +57,8 @@ class LinkedInScraper(BaseScraper):
         
         print(f"Searching LinkedIn for: {search_query}")
         
-        # Note: LinkedIn requires authentication for most content
-        # This is a simplified version that works with public content
-        # For full functionality, you'd need to implement login
-        
-        # Try Google search as a workaround for public LinkedIn content
-        results.extend(self._scrape_via_google(search_query))
+        # Use alternative search engines
+        results.extend(self._scrape_via_alternative_search(search_query))
         
         # Save results to database
         if results:
@@ -69,59 +66,58 @@ class LinkedInScraper(BaseScraper):
         
         return results
     
-    def _scrape_via_google(self, query: str) -> List[Dict]:
-        """Scrape LinkedIn content via Google search"""
+    def _scrape_via_alternative_search(self, query: str) -> List[Dict]:
+        """Scrape LinkedIn content via alternative search engines"""
         results = []
         
-        # Build Google search query
-        google_query = f'site:linkedin.com/posts OR site:linkedin.com/pulse "{query}"'
-        google_url = f"https://www.google.com/search?q={urllib.parse.quote(google_query)}&num=50"
+        # Build search query for LinkedIn content
+        search_query = f'site:linkedin.com/posts OR site:linkedin.com/pulse OR site:linkedin.com/in {query}'
         
-        # Get search results
-        content = self.get_page_content(google_url)
-        if not content:
-            print("Failed to get Google search results")
-            return results
+        # Get proxy if available
+        proxy_dict = self._get_proxy_for_request()
         
-        soup = BeautifulSoup(content, 'html.parser')
+        # Use alternative search
+        searcher = AlternativeSearch(proxy_dict)
+        search_results = searcher.search_all(search_query, num_results=50)
         
-        # Parse Google search results
-        for result in soup.find_all('div', class_='g'):
-            link_elem = result.find('a')
-            if not link_elem:
-                continue
+        # Parse search results
+        for result in search_results:
+            url = result['url']
             
-            url = link_elem.get('href', '')
+            # Only process LinkedIn URLs
             if 'linkedin.com' not in url:
                 continue
             
-            # Extract snippet
-            snippet_elem = result.find('span', class_='aCOpRe')
-            snippet = snippet_elem.text if snippet_elem else ''
+            # Extract content from result
+            title = result['title']
+            snippet = result['snippet']
             
             # Check if snippet contains our keywords
             keywords_found = self._extract_keywords(snippet)
             if not keywords_found:
                 continue
             
-            # Extract title
-            title_elem = result.find('h3')
-            title = title_elem.text if title_elem else 'LinkedIn Post'
-            
             # Try to extract author from title or URL
             author = self._extract_author_from_title(title)
             
             # Determine post type
-            post_type = 'article' if '/pulse/' in url else 'post'
+            if '/pulse/' in url:
+                post_type = 'article'
+            elif '/posts/' in url:
+                post_type = 'post'
+            elif '/in/' in url:
+                post_type = 'profile'
+            else:
+                post_type = 'other'
             
             results.append({
                 'platform': self.platform,
                 'post_type': post_type,
                 'url': url,
                 'author': author,
-                'author_title': None,  # Would need to visit the page
+                'author_title': None,
                 'content': snippet,
-                'timestamp': None,  # Would need to visit the page
+                'timestamp': None,
                 'keywords_found': keywords_found,
                 'likes': None,
                 'comments': None,
@@ -131,7 +127,7 @@ class LinkedInScraper(BaseScraper):
                 'is_verified': False
             })
         
-        print(f"Found {len(results)} LinkedIn results via Google")
+        print(f"Found {len(results)} LinkedIn results via alternative search")
         return results
     
     def _extract_author_from_title(self, title: str) -> Optional[str]:
@@ -141,7 +137,9 @@ class LinkedInScraper(BaseScraper):
             r'^(.+?) on LinkedIn:',
             r'^(.+?) posted on LinkedIn',
             r'^(.+?) shared',
-            r'^Post by (.+?)$'
+            r'^Post by (.+?)$',
+            r'^(.+?) \| LinkedIn',
+            r'^(.+?) - .+ \| LinkedIn'
         ]
         
         for pattern in patterns:
@@ -154,7 +152,7 @@ class LinkedInScraper(BaseScraper):
     def parse_post(self, post_element) -> Optional[Dict]:
         """Parse individual LinkedIn post element"""
         # This would be implemented if we had direct access to LinkedIn HTML
-        # For now, this is handled in _scrape_via_google
+        # For now, this is handled in _scrape_via_alternative_search
         pass
     
     def scrape_linkedin_ads(self) -> List[Dict]:

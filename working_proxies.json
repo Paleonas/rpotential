@@ -1,0 +1,154 @@
+[
+  {
+    "ip": "77.110.114.116",
+    "port": "8080",
+    "country": "United States",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "50.112.100.138",
+    "port": "80",
+    "country": "United States",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "15.168.12.20",
+    "port": "3128",
+    "country": "Japan",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "152.53.169.165",
+    "port": "1080",
+    "country": "Austria",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "176.126.103.194",
+    "port": "44214",
+    "country": "Russian Federation",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "35.238.111.20",
+    "port": "3128",
+    "country": "United States",
+    "anonymity": "anonymous",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "57.129.81.201",
+    "port": "8080",
+    "country": "Germany",
+    "anonymity": "anonymous",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "195.158.8.123",
+    "port": "3128",
+    "country": "Uzbekistan",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "14.239.189.73",
+    "port": "8080",
+    "country": "Vietnam",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "200.174.198.86",
+    "port": "8888",
+    "country": "Brazil",
+    "anonymity": "anonymous",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "8.213.129.20",
+    "port": "2020",
+    "country": "South Korea",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "2.50.45.120",
+    "port": "8080",
+    "country": "United Arab Emirates",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "223.135.156.183",
+    "port": "8080",
+    "country": "Japan",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "42.118.1.140",
+    "port": "16000",
+    "country": "Vietnam",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "47.237.107.41",
+    "port": "6379",
+    "country": "Singapore",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "42.118.74.204",
+    "port": "16000",
+    "country": "Vietnam",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "8.219.97.248",
+    "port": "80",
+    "country": "Singapore",
+    "anonymity": "anonymous",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "47.251.43.115",
+    "port": "33333",
+    "country": "United States",
+    "anonymity": "anonymous",
+    "https": true,
+    "source": "sslproxies"
+  },
+  {
+    "ip": "89.117.145.245",
+    "port": "3128",
+    "country": "United States",
+    "anonymity": "elite proxy",
+    "https": true,
+    "source": "sslproxies"
+  }
+]

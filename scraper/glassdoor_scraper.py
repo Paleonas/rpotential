@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import json
 from .base_scraper import BaseScraper
+from .alternative_search import AlternativeSearch
 
 class GlassdoorScraper(BaseScraper):
     """Scraper for Glassdoor reviews and posts"""
@@ -35,15 +36,15 @@ class GlassdoorScraper(BaseScraper):
         
         for company in companies_to_check:
             print(f"Searching Glassdoor for {company} reviews...")
-            results.extend(self._scrape_company_reviews_via_google(company))
+            results.extend(self._scrape_company_reviews_alternative(company))
         
-        # Also search for general mentions via Google
+        # Also search for general mentions
         if not search_query:
             keywords_to_search = ['Marc Benioff', 'Agentforce', 'Bret Taylor']
             for keyword in keywords_to_search:
-                results.extend(self._scrape_mentions_via_google(keyword))
+                results.extend(self._scrape_mentions_alternative(keyword))
         else:
-            results.extend(self._scrape_mentions_via_google(search_query))
+            results.extend(self._scrape_mentions_alternative(search_query))
         
         # Save results to database
         if results:
@@ -51,44 +52,34 @@ class GlassdoorScraper(BaseScraper):
         
         return results
     
-    def _scrape_company_reviews_via_google(self, company: str) -> List[Dict]:
-        """Scrape company reviews via Google search"""
+    def _scrape_company_reviews_alternative(self, company: str) -> List[Dict]:
+        """Scrape company reviews via alternative search engines"""
         results = []
         
-        # Build Google search query for Glassdoor reviews
-        google_query = f'site:glassdoor.com/Reviews "{company}" review'
-        google_url = f"https://www.google.com/search?q={urllib.parse.quote(google_query)}&num=30"
+        # Build search query for Glassdoor reviews
+        search_query = f'site:glassdoor.com/Reviews "{company}" review employee'
         
-        # Get search results
-        content = self.get_page_content(google_url)
-        if not content:
-            print(f"Failed to get Google search results for {company}")
-            return results
+        # Get proxy if available
+        proxy_dict = self._get_proxy_for_request()
         
-        soup = BeautifulSoup(content, 'html.parser')
+        # Use alternative search
+        searcher = AlternativeSearch(proxy_dict)
+        search_results = searcher.search_all(search_query, num_results=30)
         
-        # Parse Google search results
-        for result in soup.find_all('div', class_='g'):
-            link_elem = result.find('a')
-            if not link_elem:
-                continue
+        # Parse search results
+        for result in search_results:
+            url = result['url']
             
-            url = link_elem.get('href', '')
             if 'glassdoor.com' not in url or '/Reviews/' not in url:
                 continue
             
-            # Extract snippet
-            snippet_elem = result.find('span', class_='aCOpRe')
-            snippet = snippet_elem.text if snippet_elem else ''
+            title = result['title']
+            snippet = result['snippet']
             
-            # Check if snippet contains our keywords
+            # Check if snippet contains our keywords or is relevant
             keywords_found = self._extract_keywords(snippet)
             if not keywords_found and company.lower() not in snippet.lower():
                 continue
-            
-            # Extract title
-            title_elem = result.find('h3')
-            title = title_elem.text if title_elem else 'Glassdoor Review'
             
             # Try to extract review metadata from snippet
             rating = self._extract_rating_from_snippet(snippet)
@@ -115,43 +106,34 @@ class GlassdoorScraper(BaseScraper):
         print(f"Found {len(results)} Glassdoor reviews for {company}")
         return results
     
-    def _scrape_mentions_via_google(self, keyword: str) -> List[Dict]:
-        """Scrape general mentions via Google search"""
+    def _scrape_mentions_alternative(self, keyword: str) -> List[Dict]:
+        """Scrape general mentions via alternative search engines"""
         results = []
         
-        # Build Google search query
-        google_query = f'site:glassdoor.com "{keyword}"'
-        google_url = f"https://www.google.com/search?q={urllib.parse.quote(google_query)}&num=20"
+        # Build search query
+        search_query = f'site:glassdoor.com "{keyword}"'
         
-        # Get search results
-        content = self.get_page_content(google_url)
-        if not content:
-            return results
+        # Get proxy if available
+        proxy_dict = self._get_proxy_for_request()
         
-        soup = BeautifulSoup(content, 'html.parser')
+        # Use alternative search
+        searcher = AlternativeSearch(proxy_dict)
+        search_results = searcher.search_all(search_query, num_results=20)
         
-        # Parse Google search results
-        for result in soup.find_all('div', class_='g'):
-            link_elem = result.find('a')
-            if not link_elem:
-                continue
+        # Parse search results
+        for result in search_results:
+            url = result['url']
             
-            url = link_elem.get('href', '')
             if 'glassdoor.com' not in url:
                 continue
             
-            # Extract snippet
-            snippet_elem = result.find('span', class_='aCOpRe')
-            snippet = snippet_elem.text if snippet_elem else ''
+            title = result['title']
+            snippet = result['snippet']
             
             # Check if snippet contains our keywords
             keywords_found = self._extract_keywords(snippet)
             if not keywords_found:
                 continue
-            
-            # Extract title
-            title_elem = result.find('h3')
-            title = title_elem.text if title_elem else 'Glassdoor Post'
             
             # Determine post type
             if '/Reviews/' in url:
