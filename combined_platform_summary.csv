@@ -1,0 +1,46 @@
+LINKEDIN ANALYSIS SUMMARY
+Metric,Value
+Total Posts,500
+Total Engagement,1438125
+Average Engagement per Post,2876.25
+Most Engaged Content Type,status
+
+Top Hashtags,Count
+#tech,207
+#data,206
+#startup,203
+#ai,200
+#innovation,192
+#leadership,188
+#enterprise,185
+#cloud,184
+#growth,183
+
+Content Type,Average Engagement
+achievement,2834.45
+article,2835.57
+job,2898.7
+status,2944.27
+
+GLASSDOOR ANALYSIS SUMMARY
+Metric,Value
+Total Reviews,500
+Average Rating,3.53
+Top Rated Company,Google
+
+Company,Average Rating
+Google,3.8
+Microsoft,3.65
+IBM,3.62
+Salesforce,3.52
+Netflix,3.51
+Apple,3.47
+Amazon,3.45
+Meta,3.44
+Tesla,3.42
+Oracle,3.38
+
+Sentiment,Count
+Positive,176
+Neutral,179
+Negative,145
