@@ -1,0 +1,44 @@
+Bonjour,
+
+Pour structurer votre base de données juridique et la rendre requêtable par l'IA, on vous propose 2 solutions :
+
+**Option 1 : No-Code (Airtable + Make)**
+→ Rapide (1 semaine de setup), facile à gérer, pas besoin de code
+→ Idéal si vous avez moins de 1000 documents
+→ Budget : 2000-3000€ setup + ~100€/mois
+
+**Option 2 : Dev (PostgreSQL + API)**
+→ Performance maximale, scalable à l'infini
+→ Contrôle total et personnalisation complète
+→ Budget : 5000-8000€ setup + ~200€/mois
+
+**Notre expérience :**
+On a déjà entraîné une IA sur une grosse base de données de discussions Reddit (AgentForge). On maîtrise le RAG (Retrieval-Augmented Generation) - la technologie qui permet à l'IA de "parler" avec votre base de données en s'appuyant sur vos documents.
+
+**Ce qu'on fait concrètement :**
+- Structurer votre base (catégories hiérarchiques, métadonnées)
+- Classifier tous vos documents existants
+- Générer les embeddings (vectorisation) pour recherche sémantique
+- Intégrer RAG pour les conversations IA (V2)
+- Mettre en place la maintenance pour nouveaux documents
+
+**Planning :**
+- Phase 1 : Setup et import (1 semaine)
+- Phase 2 : Classification (1-2 semaines)
+- Phase 3 : V1 Navigation (1 semaine)
+- Phase 4 : V2 IA Conversationnelle (1-2 semaines)
+
+**Prochaines étapes :**
+1. Appel de cadrage (30min) pour affiner vos besoins
+2. Proposition détaillée (architecture + planning précis)
+3. POC rapide (optionnel) sur un échantillon de vos données
+
+On peut commencer dès que vous validez ! On a déjà tout l'architecture technique prête (schéma BDD, scripts, etc.).
+
+Quelques questions pour affiner :
+- Volume de documents approximatif ?
+- Format actuel de vos données ?
+- Date de lancement V1 souhaitée ?
+- Vous avez mentionné des données Reddit - format disponible ?
+
+À bientôt,
