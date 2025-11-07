@@ -19,8 +19,9 @@ COPY sage_agent_simple.py .
 COPY netlify/ ./netlify/
 COPY static/ ./static/
 
-# Create results directory if needed
+# Create results directory and copy data file
 RUN mkdir -p results
+COPY results/ ./results/
 
 # Expose port
 EXPOSE 8000
