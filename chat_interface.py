@@ -2033,15 +2033,24 @@ if __name__ == "__main__":
     # Create logs directory if it doesn't exist
     os.makedirs("logs", exist_ok=True)
     
+    # Railway automatically sets PORT environment variable
+    # Use it if available, otherwise default to 8000
     port = int(os.getenv("PORT", 8000))
     host = os.getenv("HOST", "0.0.0.0")
     
     logger.info(f"🚀 Starting Sage Agent on {host}:{port}")
+    logger.info(f"📋 Environment: PORT={port}, HOST={host}")
+    logger.info(f"📁 Working directory: {os.getcwd()}")
     
-    uvicorn.run(
-        app,
-        host=host,
-        port=port,
-        log_level="info",
-        access_log=True
-    )
+    try:
+        uvicorn.run(
+            app,
+            host=host,
+            port=port,
+            log_level="info",
+            access_log=True
+        )
+    except Exception as e:
+        logger.error(f"❌ Failed to start server: {str(e)}")
+        logger.error(traceback.format_exc())
+        raise
