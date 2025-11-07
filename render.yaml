@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: rpotential-sage-agent
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python chat_interface.py
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: DATA_PATH
+        value: results/rpotential_filtered_focused_data.csv
+      - key: PORT
+        value: 8000
+

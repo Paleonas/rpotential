@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Netlify
+.netlify/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (if sensitive)
+# Uncomment if you don't want to commit data
+# results/*.csv
+*.env*
+*.csv
+deploy_now.sh
+deploy_railway.sh
+quick_deploy_info.txt
+apify/
+apify_*.py
