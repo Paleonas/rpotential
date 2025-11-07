@@ -107,6 +107,32 @@ if not api_key:
     logger.error("OPENAI_API_KEY environment variable not set")
     raise ValueError("OPENAI_API_KEY environment variable required")
 
+# Check if data file exists, try multiple locations
+if not os.path.exists(data_path):
+    logger.warning(f"⚠️ Data file not found at {data_path}, checking alternative locations...")
+    alt_paths = [
+        f"/app/{data_path}",
+        f"./{data_path}",
+        "results/rpotential_filtered_focused_data.csv",
+        "/app/results/rpotential_filtered_focused_data.csv",
+        os.path.join(os.path.dirname(__file__), data_path),
+        os.path.join(os.path.dirname(__file__), "results", "rpotential_filtered_focused_data.csv")
+    ]
+    found = False
+    for alt_path in alt_paths:
+        if os.path.exists(alt_path):
+            data_path = alt_path
+            logger.info(f"✅ Found data file at {data_path}")
+            found = True
+            break
+    if not found:
+        logger.error(f"❌ Data file not found in any location. Checked: {[data_path] + alt_paths}")
+        logger.error("Current working directory: " + os.getcwd())
+        logger.error("Files in current dir: " + str(os.listdir('.')))
+        if os.path.exists('results'):
+            logger.error("Files in results/: " + str(os.listdir('results')))
+        raise FileNotFoundError(f"Data file not found. Please ensure results/rpotential_filtered_focused_data.csv exists or set DATA_PATH environment variable.")
+
 try:
     agent = SageAgent(data_path=data_path, api_key=api_key)
     logger.info(f"✅ Agent initialized with {len(agent.df)} posts from {data_path}")
