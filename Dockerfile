@@ -21,7 +21,7 @@ COPY static/ ./static/
 
 # Create results directory and copy data file
 RUN mkdir -p results
-COPY results/ ./results/
+COPY results/rpotential_filtered_focused_data.csv ./results/rpotential_filtered_focused_data.csv
 
 # Expose port
 EXPOSE 8000
